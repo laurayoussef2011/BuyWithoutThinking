@@ -13,6 +13,7 @@ public class UserController {
 
     @Autowired
     private UserRepository rep;
+
     @GetMapping("/Register")
     public String ShowRegister()
     {
@@ -22,7 +23,7 @@ public class UserController {
     @RequestMapping("/Register")
     public String Register(@RequestParam("name") String name , @RequestParam("username") String username ,@RequestParam("email") String email , @RequestParam("password") String password )
     {
-        //fady
+        System.out.println(name);
         User user=new User(name,username,email,password);
         System.out.println(user.getName());
         rep.save(user);
