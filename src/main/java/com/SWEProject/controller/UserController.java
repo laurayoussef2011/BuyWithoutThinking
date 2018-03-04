@@ -23,6 +23,7 @@ public class UserController {
     @RequestMapping("/Register")
     public String Register(@RequestParam("name") String name , @RequestParam("username") String username ,@RequestParam("email") String email , @RequestParam("password") String password )
     {
+        //commit
         System.out.println(name);
         User user=new User(name,username,email,password);
         System.out.println(user.getName());
