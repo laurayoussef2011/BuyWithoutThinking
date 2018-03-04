@@ -4,15 +4,27 @@
     <title> Register </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
 
-<form action="/Register" method="post">
-    Name : <input type="text" name="name" /> <br/>
-    UserName : <input type="text" name="username" /> <br/>
-    Email :     <input type="text" name="email" /> <br/>
-    Password :  <input type="password" name="password" /> <br/>
-               <input type="submit" value="submit" /> <br/>
+<form  th:action="@{/Register}" th:object="${user}" method="post">
+    Name : <input type="text" th:field="*{name}" /> <br/><br/>
+    UserName : <input type="text" th:field="*{username}" /> <br/><br/>
+    Email :     <input type="text" th:field="*{email}" /> <br/><br/>
+    Password :  <input type="password" th:field="*{password}" /> <br/><br/>
 
+    Type:       <select th:field="*{type}">
+                 <option value="NormalUser"> Normal user </option>
+                 <option value="StoreOwner"> Store Owner </option>
+                 <option value="Admin"> Administrator </option>
+                </select>
+                 <br/><br/>
+
+               <input type="submit" value="submit" /> <br/><br/>
+</form>
+
+<form th:action="@{/Login}" method = "post">
+    <input type="submit" value="login" /> <br/><br/>
 </form>
 
 </body>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
@@ -15,19 +16,36 @@ public class UserController {
     private UserRepository rep;
 
     @GetMapping("/Register")
-    public String ShowRegister()
+    public String ShowRegister(Model model)
     {
+        model.addAttribute("user", new User());
         return "register";
     }
 
     @RequestMapping("/Register")
-    public String Register(@RequestParam("name") String name , @RequestParam("username") String username ,@RequestParam("email") String email , @RequestParam("password") String password )
+    public String Register(Model model, @ModelAttribute User user )
     {
-        //commit
-        System.out.println(name);
-        User user=new User(name,username,email,password);
-        System.out.println(user.getName());
+        model.addAttribute("user", new User());
         rep.save(user);
+
         return "register";
+    }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @GetMapping("/Login")
+    public String ShowLogin(Model model)
+    {
+        model.addAttribute("user", new User());
+        return "login";
+    }
+
+    @RequestMapping("/Login")
+    public String Login(Model model, @ModelAttribute User user )
+    {
+        model.addAttribute("user", new User());
+
+        //rep.exists(user.getUsername());
+
+        return "login";
     }
 }

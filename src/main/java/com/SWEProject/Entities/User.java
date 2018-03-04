@@ -1,31 +1,30 @@
 package com.SWEProject.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
 
+
+    private String Username;
     private String Name;
     private String Email;
-    private String Username;
+    private String Type;
     private String Password;
 
     public User(){
         Name = "";
         Email = "";
+        Type = "";
         Username = "";
         Password = "";
     }
 
-    public User(String name, String email, String username, String password) {
+    public User(String name, String email, String username, String password, String type) {
         Name = name;
         Email = email;
+        Type = type;
         Username = username;
         Password = password;
     }
@@ -60,5 +59,13 @@ public class User {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
     }
 }
