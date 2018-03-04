@@ -6,12 +6,12 @@
 </head>
 <body>
 
-<form th:action="@{/Register}" th:object="${User}" method="post">
-    Name : <input type="text" th:field="*{name}" /> <br></br> <br></br>
-    UserName : <input type="text" th:field="*{username}" /> <br></br> <br></br>
-    Email :     <input type="text" th:field="*{email}" /> <br></br> <br></br>
-    Password :  <input type="password" th:field="*{password}" /> <br></br> <br></br>
-               <input type="submit" value="submit" /> <br></br> <br></br>
+<form action="/Register">
+    Name : <input type="text" name="name" /> <br/>
+    UserName : <input type="text" name="username" /> <br/>
+    Email :     <input type="text" name="email" /> <br/>
+    Password :  <input type="password" name="password" /> <br/>
+               <input type="submit" value="submit" /> <br/>
 
 </form>
 

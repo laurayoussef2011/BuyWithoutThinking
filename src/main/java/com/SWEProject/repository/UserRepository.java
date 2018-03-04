@@ -1,7 +1,9 @@
 package com.SWEProject.repository;
 
 
+import com.SWEProject.Entities.User;
+import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository {
+public interface UserRepository extends CrudRepository<User, Integer>{
 
 }
