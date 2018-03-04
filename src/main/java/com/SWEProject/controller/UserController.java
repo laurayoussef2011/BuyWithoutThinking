@@ -13,11 +13,11 @@ public class UserController {
 
     @Autowired
     private UserRepository rep;
-    /*@GetMapping("")
+    @GetMapping("/Register")
     public String ShowRegister()
     {
         return "register";
-    }*/
+    }
 
     @RequestMapping("/Register")
     public String Register(@RequestParam("name") String name , @RequestParam("username") String username ,@RequestParam("email") String email , @RequestParam("password") String password )
