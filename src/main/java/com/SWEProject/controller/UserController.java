@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserRepository rep;
+    private UserRepository rep;k
     /*@GetMapping("")
     public String ShowRegister()
     {
