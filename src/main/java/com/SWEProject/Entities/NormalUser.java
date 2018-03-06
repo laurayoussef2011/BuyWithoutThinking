@@ -1,5 +1,6 @@
 package com.SWEProject.Entities;
 
-public class NormalUser {
+
+public class NormalUser extends User{
 
 }

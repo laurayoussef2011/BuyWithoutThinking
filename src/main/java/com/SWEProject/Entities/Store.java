@@ -1,11 +1,21 @@
 package com.SWEProject.Entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Vector;
 
+@Entity
 public class Store {
-    private String Name;
+    @Id
     private String ID;
+    private String Name;
     private Vector<Product> myProduct;
+
+    public Store() {
+        Name = "";
+        this.ID = "";
+        this.myProduct = new Vector<>();
+    }
 
     public Store(String name, String ID, Vector<Product> myProduct) {
         Name = name;

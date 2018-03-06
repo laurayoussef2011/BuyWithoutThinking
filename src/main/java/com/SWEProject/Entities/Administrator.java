@@ -1,4 +1,7 @@
 package com.SWEProject.Entities;
 
-public class Administrator {
+
+public class Administrator extends User{
+
+
 }

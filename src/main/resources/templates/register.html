@@ -3,20 +3,52 @@
 <head>
     <title> Register </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script>
+
+        function ValidateFunction(){
+            var FirstName = document.forms["Register"]["name"].value;
+            var UserName= document.forms["Register"]["username"].value;
+            var Email = document.forms["Register"]["email"].value;
+            var Password = document.forms["Register"]["password"].value;
+
+            if(FirstName == "" || FirstName.length > 30){
+                alert("Name must be entered and less than 30 characters!");
+                return false;
+            }
+            else if(UserName == "" || UserName.length > 30){
+                alert("UserName must be entered and less than 30 characters!");
+                return false;
+            }
+            else if(Email == ""){
+                alert("Email must be entered!");
+                return false;
+            }
+            else if(Password == "" || Password.length > 15){
+                alert("Password must be entered and less than 15 characters!");
+                return false;
+            }
+            else{
+                return true;
+            }
+
+        }
+
+    </script>
+
 </head>
 
 <body>
 
-<form  th:action="@{/Register}" th:object="${user}" method="post">
-    Name : <input type="text" th:field="*{name}" /> <br/><br/>
-    UserName : <input type="text" th:field="*{username}" /> <br/><br/>
+<form name="Register"  th:action="@{/Register}" th:object="${user}" method="post" onsubmit="ValidateFunction()">
+    Name :      <input type="text" th:field="*{name}" /> <br/><br/>
+    UserName :  <input type="text" th:field="*{username}" /> <br/><br/>
     Email :     <input type="text" th:field="*{email}" /> <br/><br/>
     Password :  <input type="password" th:field="*{password}" /> <br/><br/>
 
     Type:       <select th:field="*{type}">
-                 <option value="NormalUser"> Normal user </option>
-                 <option value="StoreOwner"> Store Owner </option>
-                 <option value="Admin"> Administrator </option>
+                 <option value="NormalUser">Normal user</option>
+                 <option value="StoreOwner">Store Owner</option>
+                 <option value="Admin">Admin</option>
                 </select>
                  <br/><br/>
 

@@ -1,23 +1,20 @@
 package com.SWEProject.Entities;
 
-import java.util.Vector;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 public class Brand {
-    private String Name;
+    @Id
     private String BrandID;
-    private Vector<Model> myModel;
+    private String Name;
 
-    public Brand(String name, String brandID, Vector<Model> myModel) {
-        Name = name;
+    public Brand() {
+        BrandID = "";
+        Name = "";
+    }
+
+    public Brand(String brandID, String name) {
         BrandID = brandID;
-        this.myModel = myModel;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
         Name = name;
     }
 
@@ -29,11 +26,11 @@ public class Brand {
         BrandID = brandID;
     }
 
-    public Vector<Model> getMyModel() {
-        return myModel;
+    public String getName() {
+        return Name;
     }
 
-    public void setMyModel(Vector<Model> myModel) {
-        this.myModel = myModel;
+    public void setName(String name) {
+        Name = name;
     }
 }

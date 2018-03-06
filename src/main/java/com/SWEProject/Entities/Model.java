@@ -1,16 +1,22 @@
 package com.SWEProject.Entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
 public class Model {
+    @Id
     private String ModelID;
     private String Name;
-    private Brand myBrand;
-    private int view;
 
-    public Model(String modelID, String name, Brand myBrand, int view) {
+    public Model() {
+        ModelID = "";
+        Name = "";
+    }
+
+    public Model(String modelID, String name) {
         ModelID = modelID;
         Name = name;
-        this.myBrand = myBrand;
-        this.view = view;
     }
 
     public String getModelID() {
@@ -27,21 +33,5 @@ public class Model {
 
     public void setName(String name) {
         Name = name;
-    }
-
-    public Brand getMyBrand() {
-        return myBrand;
-    }
-
-    public void setMyBrand(Brand myBrand) {
-        this.myBrand = myBrand;
-    }
-
-    public int getView() {
-        return view;
-    }
-
-    public void setView(int view) {
-        this.view = view;
     }
 }

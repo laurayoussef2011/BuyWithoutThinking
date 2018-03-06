@@ -5,13 +5,11 @@ import javax.persistence.*;
 @Entity
 public class User {
     @Id
-
-
-    private String Username;
-    private String Name;
-    private String Email;
-    private String Type;
-    private String Password;
+    protected String Username;
+    protected String Name;
+    protected String Email;
+    protected String Type;
+    protected String Password;
 
     public User(){
         Name = "";

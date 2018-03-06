@@ -1,42 +1,54 @@
 package com.SWEProject.Entities;
 
-public class Product {
-    private String ProductID;
-    private Model myModel;
-    private Brand myBrand;
-    private double Price;
-    private Store Store;
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
 
-    public Product(String productID, Model myModel, Brand myBrand, double price, com.SWEProject.Entities.Store store) {
-        ProductID = productID;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer ProductID;
+
+    private String ProductName;
+    private double Price;
+    private String myModel;
+    private String myBrand;
+    private String Store;
+
+    public Product() {
+        ProductName = "";
+        Price = 0.0;
+        myModel = "";
+        this.myBrand = "";
+        Store = "";
+    }
+
+    public Product( String productName, double price, String myModel, String myBrand, String store) {
+        ProductName = productName;
+        Price = price;
         this.myModel = myModel;
         this.myBrand = myBrand;
-        Price = price;
         Store = store;
     }
 
-    public String getProductID() {
+    public Integer getProductID() {
         return ProductID;
     }
 
-    public void setProductID(String productID) {
+    public void setProductID(Integer productID) {
         ProductID = productID;
     }
 
-    public Model getMyModel() {
-        return myModel;
+    public String getProductName() {
+        return ProductName;
     }
 
-    public void setMyModel(Model myModel) {
-        this.myModel = myModel;
-    }
-
-    public Brand getMyBrand() {
-        return myBrand;
-    }
-
-    public void setMyBrand(Brand myBrand) {
-        this.myBrand = myBrand;
+    public void setProductName(String productName) {
+        ProductName = productName;
     }
 
     public double getPrice() {
@@ -47,11 +59,27 @@ public class Product {
         Price = price;
     }
 
-    public com.SWEProject.Entities.Store getStore() {
+    public String getMyModel() {
+        return myModel;
+    }
+
+    public void setMyModel(String myModel) {
+        this.myModel = myModel;
+    }
+
+    public String getMyBrand() {
+        return myBrand;
+    }
+
+    public void setMyBrand(String myBrand) {
+        this.myBrand = myBrand;
+    }
+
+    public String getStore() {
         return Store;
     }
 
-    public void setStore(com.SWEProject.Entities.Store store) {
+    public void setStore(String store) {
         Store = store;
     }
 }
