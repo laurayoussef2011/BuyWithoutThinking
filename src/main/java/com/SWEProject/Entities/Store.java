@@ -1,49 +1,51 @@
 package com.SWEProject.Entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Vector;
 
 @Entity
 public class Store {
     @Id
-    private String ID;
-    private String Name;
-    private Vector<Product> myProduct;
+    private String StoreName;
+    private String StoreOwner;
+    private String Type;
+
 
     public Store() {
-        Name = "";
-        this.ID = "";
-        this.myProduct = new Vector<>();
+        StoreName = "";
+        StoreOwner= "";
+        Type= "";
     }
 
-    public Store(String name, String ID, Vector<Product> myProduct) {
-        Name = name;
-        this.ID = ID;
-        this.myProduct = myProduct;
+    public Store(String storeOwner, String storeName, String type) {
+        StoreOwner = storeOwner;
+        StoreName = storeName;
+        Type = type;
     }
 
-    public String getName() {
-        return Name;
+    public void setStoreOwner(String storeOwner) {
+        StoreOwner = storeOwner;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setStoreName(String storeName) {
+        StoreName = storeName;
     }
 
-    public String getID() {
-        return ID;
+    public void setType(String type) {
+        Type = type;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public String getStoreOwner() {
+        return StoreOwner;
     }
 
-    public Vector<Product> getMyProduct() {
-        return myProduct;
+    public String getStoreName() {
+        return StoreName;
     }
 
-    public void setMyProduct(Vector<Product> myProduct) {
-        this.myProduct = myProduct;
+    public String getType() {
+        return Type;
     }
 }

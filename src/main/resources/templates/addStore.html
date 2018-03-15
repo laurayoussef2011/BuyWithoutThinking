@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title> Add Product </title>
+    <title> Add Store </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!--<link rel ="stylesheet" href="CssStyle.css" th:href="@{/CssStyle.css}"/>-->
     <style>
         body{
             background-color: wheat;
@@ -72,28 +71,30 @@
             background-color: #3b5998;
             color: white;
         }
-        </style>
+    </style>
 </head>
 <body>
-<h1>Add Product</h1>
+<h1>Add Store</h1>
 
 <div>
 
 
-    <form name="AddProduct" th:action="@{/AddProductToStore}" th:object="${product}" method="post" th:align="center">
-        Name       <br/><input type="text" th:field="*{productName}" /> <br/><br/>
-        store Name <br/><input type="text" th:field="*{storeName}" /> <br/><br/>
-        price      <br/><input type="text" th:field="*{price}" /> <br/><br/>
-        Model Name <br/><input type="text" th:field="*{model}" /> <br/><br/>
-        Brand Name <br/><input type="text" th:field="*{brand}" /> <br/><br/>
+    <form name="AddProduct" th:action="@{/AddStore}" th:object="${store}" method="post" th:align="center">
+        Store Owner Name        <br/><input type="text" th:field="*{storeOwner}" /> <br/><br/>
+        store Name              <br/><input type="text" th:field="*{storeName}" /> <br/><br/>
 
+        Type   <br/><select th:field="*{type}">
+        <option value="OnSite"> OnSite </option>
+        <option value="Online"> Online </option>
+        </select>
+        <br/><br/>
         <input type="submit" value="Add" /> <br/><br/>
     </form>
 
 
-<form th:action="@{/AdminView}" method = "get" th:align="center">
-    <input type="submit" value="Back" /> <br/><br/>
-</form>
+    <form th:action="@{/AdminView}" method = "get" th:align="center">
+        <input type="submit" value="Back" /> <br/><br/>
+    </form>
 </div>
 </body>
 </html>

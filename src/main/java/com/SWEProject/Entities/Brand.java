@@ -1,36 +1,39 @@
 package com.SWEProject.Entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Brand {
     @Id
-    private String BrandID;
-    private String Name;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer BrandID;
+    private String BrandName;
 
-    public Brand() {
-        BrandID = "";
-        Name = "";
+    public Brand()
+    {
+        BrandName="";
     }
 
-    public Brand(String brandID, String name) {
-        BrandID = brandID;
-        Name = name;
+    public Brand(String name) {
+        BrandName = name;
     }
 
-    public String getBrandID() {
+    public Integer getBrandID() {
         return BrandID;
     }
 
-    public void setBrandID(String brandID) {
+    public void setBrandID(Integer brandID) {
         BrandID = brandID;
     }
 
-    public String getName() {
-        return Name;
+    public String getBrandName() {
+        return BrandName;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setBrandName(String name) {
+        BrandName = name;
     }
 }
