@@ -8,8 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class ProductModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer ModelID;
+
     private String Name;
 
     public ProductModel()
@@ -21,14 +20,6 @@ public class ProductModel {
         Name = name;
     }
 
-
-    public Integer getModelID() {
-        return ModelID;
-    }
-
-    public void setModelID(Integer modelID) {
-        ModelID = modelID;
-    }
 
     public String getName() {
         return Name;
