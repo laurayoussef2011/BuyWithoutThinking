@@ -34,18 +34,88 @@
         }
 
     </script>
+    <style>
+        body{
+            background-color: wheat;
+            /*background-image: url("Image.jpg");*/
+        }
+        h1{
+            font-size: 40px;
+            font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+            background-color:#3b5998;
+            color: white;
+            text-align:center;
+        }
+        p {
+            font-size: 30px;
+            font-family:"times new roman", serif;
+            font-style: italic;
+        }
+        div{
+            width: 400px;
+            margin: 0 auto;
+            height: auto;
+            background: #b0bcd5;
+            padding: 18px;
+            border-radius: 30px;
+            border: 2px solid black;
+        }
+        button {
+            padding: 5px 15px;
+            font-size: 15px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+
+        button:hover {
+            background-color: #3e8e41
+        }
+
+        button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        form{
+            font-size: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #3b5998;
+            color: white;
+        }
+    </style>
 
 </head>
 
 <body>
+<h1> Register </h1>
+<div>
+<form name="Register"  th:action="@{/Register}" th:object="${user}" method="post" onsubmit="ValidateFunction()" th:align="center">
+    Name <br/><input type="text" th:field="*{name}" /> <br/><br/>
+    UserName <br/><input type="text" th:field="*{username}" /> <br/><br/>
+    Email <br/><input type="text" th:field="*{email}" /> <br/><br/>
+    Password <br/><input type="password" th:field="*{password}" /> <br/><br/>
 
-<form name="Register"  th:action="@{/Register}" th:object="${user}" method="post" onsubmit="ValidateFunction()">
-    Name :      <input type="text" th:field="*{name}" /> <br/><br/>
-    UserName :  <input type="text" th:field="*{username}" /> <br/><br/>
-    Email :     <input type="text" th:field="*{email}" /> <br/><br/>
-    Password :  <input type="password" th:field="*{password}" /> <br/><br/>
-
-    Type:       <select th:field="*{type}">
+    Type <br/><select th:field="*{type}">
                  <option value="NormalUser">Normal user</option>
                  <option value="StoreOwner">Store Owner</option>
                  <option value="Admin">Admin</option>
@@ -55,9 +125,10 @@
                <input type="submit" value="submit" /> <br/><br/>
 </form>
 
-<form th:action="@{/Login}" method = "post">
+<form th:action="@{/Login}" method = "post" th:align="center">
     <input type="submit" value="login" /> <br/><br/>
 </form>
 
+</div>
 </body>
 </html>

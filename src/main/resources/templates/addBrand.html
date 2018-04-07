@@ -1,9 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title> Add Product </title>
+    <title> Add Brand </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!--<link rel ="stylesheet" href="CssStyle.css" th:href="@{/CssStyle.css}"/>-->
+    <script>
+
+        function ValidateFunction(){
+            var Name= document.forms["Login"]["name"].value;
+            var BrandID = document.forms["Login"]["brandID"].value;
+            if(Name == "" || Name.length > 30){
+                alert("UserName must be entered and less than 30 characters!");
+                return false;
+            }
+            else if(BrandID == "" || BrandID.length > 15){
+                alert("Password must be entered and less than 15 characters!");
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+
+    </script>
     <style>
         body{
             background-color: wheat;
@@ -30,7 +48,7 @@
             border-radius: 30px;
             border: 2px solid black;
         }
-        button{
+        button {
             padding: 5px 15px;
             font-size: 15px;
             text-align: center;
@@ -44,7 +62,7 @@
         }
 
         button:hover {
-            background-color: #3e8e41;
+            background-color: #3e8e41
         }
 
         button:active {
@@ -72,28 +90,27 @@
             background-color: #3b5998;
             color: white;
         }
-        </style>
+    </style>
 </head>
 <body>
-<h1>Add Product</h1>
+
 
 <div>
 
-
-    <form name="AddProduct" th:action="@{/AddProductToStore}" th:object="${product}" method="post" th:align="center">
-        Name       <br/><input type="text" th:field="*{productName}" /> <br/><br/>
-        store Name <br/><input type="text" th:field="*{storeName}" /> <br/><br/>
-        price      <br/><input type="text" th:field="*{price}" /> <br/><br/>
-        Model Name <br/><input type="text" th:field="*{model}" /> <br/><br/>
-        Brand Name <br/><input type="text" th:field="*{brand}" /> <br/><br/>
+    <form name="AddBrand" th:action="@{/AddBrand}" th:object="${brand}" method = "post"  th:align="center">
+        Name       <br/><input type="text" th:field="*{brandName}" /> <br/><br/>
+        ID         <br/><input type="text" th:field="*{brandID}" /> <br/><br/>
 
         <input type="submit" value="Add" /> <br/><br/>
+
+
     </form>
 
-
-<form th:action="@{/StoreOwnerView}" method = "get" th:align="center">
-    <input type="submit" value="Back" /> <br/><br/>
-</form>
+    <form th:action="@{/AdminView}" method = "get" th:align="center">
+        <input type="submit" value="Back" /> <br/><br/>
+    </form>
 </div>
+
+
 </body>
 </html>

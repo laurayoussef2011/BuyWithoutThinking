@@ -1,49 +1,31 @@
 package com.SWEProject.Entities;
 
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Product {
+public class SystemProduct {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer SerialNumber;
     private String ProductName;
-    private String StoreName;
-    private double Price;
     private String Model;
     private String Brand;
-    private Integer Views;
+    private double Price;
 
-
-    public Product() {
+    public SystemProduct()
+    {
         ProductName = "";
         Price = 0.0;
         Model = "";
         Brand = "";
-        StoreName = "";
-        Views = 0;
     }
 
-    public Product(String productName, String storeName, double price, String model, String brand, Integer views) {
+    public SystemProduct(String productName, double price, String model, String brand) {
         ProductName = productName;
-        StoreName = storeName;
         Price = price;
         Model = model;
         Brand = brand;
-        Views = views;
-    }
-
-    public Integer getSerialNumber() {
-        return SerialNumber;
-    }
-
-    public void setSerialNumber(Integer serialNumber) {
-        SerialNumber = serialNumber;
     }
 
     public String getProductName() {
@@ -76,21 +58,5 @@ public class Product {
 
     public void setBrand(String brand) {
         Brand = brand;
-    }
-
-    public String getStoreName() {
-        return StoreName;
-    }
-
-    public void setStoreName(String storeName) {
-        StoreName = storeName;
-    }
-
-    public Integer getViews() {
-        return Views;
-    }
-
-    public void setViews(Integer views) {
-        Views = views;
     }
 }

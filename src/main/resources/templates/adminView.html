@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title> Add Product </title>
+    <title> Welcome Admin! </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!--<link rel ="stylesheet" href="CssStyle.css" th:href="@{/CssStyle.css}"/>-->
     <style>
         body{
             background-color: wheat;
@@ -30,7 +29,7 @@
             border-radius: 30px;
             border: 2px solid black;
         }
-        button{
+        button {
             padding: 5px 15px;
             font-size: 15px;
             text-align: center;
@@ -44,7 +43,7 @@
         }
 
         button:hover {
-            background-color: #3e8e41;
+            background-color: #3e8e41
         }
 
         button:active {
@@ -72,28 +71,24 @@
             background-color: #3b5998;
             color: white;
         }
-        </style>
+    </style>
 </head>
 <body>
-<h1>Add Product</h1>
-
+<h1> Admin View </h1>
 <div>
+<form th:action="@{/AddProductToSystem}" method = "post" th:align="center">
+    <input type="submit" value="Add Product" /> <br/><br/>
 
+</form>
+<form th:action="@{/AddBrand}" method = "post" th:align="center">
+    <input type="submit" value="Add Brand" /> <br/><br/>
 
-    <form name="AddProduct" th:action="@{/AddProductToStore}" th:object="${product}" method="post" th:align="center">
-        Name       <br/><input type="text" th:field="*{productName}" /> <br/><br/>
-        store Name <br/><input type="text" th:field="*{storeName}" /> <br/><br/>
-        price      <br/><input type="text" th:field="*{price}" /> <br/><br/>
-        Model Name <br/><input type="text" th:field="*{model}" /> <br/><br/>
-        Brand Name <br/><input type="text" th:field="*{brand}" /> <br/><br/>
+</form>
 
-        <input type="submit" value="Add" /> <br/><br/>
+    <form th:action="@{/Login}" method = "get" th:align="center">
+        <input type="submit" value="logout" /> <br/><br/>
     </form>
 
-
-<form th:action="@{/StoreOwnerView}" method = "get" th:align="center">
-    <input type="submit" value="Back" /> <br/><br/>
-</form>
 </div>
 </body>
 </html>
