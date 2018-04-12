@@ -55,11 +55,15 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public boolean login(@RequestBody User user)
+    public User login(@RequestBody User user)
     {
-        boolean val = userServ.checkAvailable(user);
-        return val;
+       return userServ.checkAvailable(user);
     }
 
+    @PostMapping("/showCollaborators/{storeName}")
+    public List<User> showCollaborators( @PathVariable String storeName)
+    {
+        return userServ.showCollaborators(storeName);
+    }
 
 }

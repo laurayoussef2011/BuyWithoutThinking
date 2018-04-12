@@ -1,14 +1,14 @@
 package com.SWEProject.service;
 
-import com.SWEProject.Entities.Product;
-import com.SWEProject.Entities.Statistics;
-import com.SWEProject.Entities.Store;
+import com.SWEProject.Entities.*;
+import com.SWEProject.repository.HistoryRepository;
 import com.SWEProject.repository.ProductRepository;
 import com.SWEProject.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -18,6 +18,10 @@ public class storeService {
 
     @Autowired
     StoreRepository storeRep;
+    @Autowired
+    ProductRepository productRep;
+    @Autowired
+    HistoryRepository historyRep;
     @Autowired
     ProductService productServ;
 
@@ -72,6 +76,57 @@ public class storeService {
 
     }
 
+    public boolean addToHistory (Product product , String username , String type , String storeName){
 
+        Date date =new Date();
+        Integer time = date.getDate();
+        History history;
+
+        if(product.getSerialnumber() == -1){
+            Product  newProduct = new Product(product.getProductname(), product.getStorename(), product.getPrice(),
+                    product.getModel(), product.getBrand(), 0,product.getQuantity(), true);
+             productRep.save(newProduct);
+             history = new History(newProduct.getSerialnumber(),username,time,type,storeName);
+        }
+        else
+        {
+             history = new History(product.getSerialnumber(),username,time,type,storeName);
+        }
+
+        historyRep.save(history);
+
+        return true;
+    }
+
+    public List<History> showHistory(String collaboratorName , String storeName){
+
+        Iterable<History> historyIterable= historyRep.findAll();
+        List<History> historyList =new ArrayList<>();
+        for(History history : historyIterable)
+        {
+            if(history.getCollaborator_name().equals(collaboratorName) && history.getStore_name().equals(storeName)){
+                historyList.add(history);
+            }
+        }
+        return historyList;
+    }
+
+    public boolean undo(History history){
+        if(history.getType().equals("remove")){
+            Product product = productRep.findOne(history.getSerial_number());
+            product.setAvailable(true);
+            productRep.save(product);
+            historyRep.delete(history.getCounter());
+
+            return true;
+        }
+        else if(history.getType().equals("add")){
+            productRep.delete(history.getSerial_number());
+            historyRep.delete(history.getCounter());
+
+            return true;
+        }
+        return false;
+    }
 
 }

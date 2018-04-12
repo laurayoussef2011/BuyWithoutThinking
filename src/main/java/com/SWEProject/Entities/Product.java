@@ -12,30 +12,33 @@ public class Product {
     private Integer Serialnumber;
     private String Productname;
     private String Storename;
-    private double Price;
+    private Integer Price;
     private String Model;
     private String Brand;
     private Integer Views;
+    private  Integer Quantity;
     private boolean Available;
 
 
     public Product() {
         Productname = "";
-        Price = 0.0;
+        Price = 0;
         Model = "";
         Brand = "";
         Storename = "";
         Views = 0;
+        Quantity = 0;
         Available = true;
     }
 
-    public Product(String productName, String storeName, double price, String model, String brand, Integer views , boolean available) {
+    public Product(String productName, String storeName, Integer price, String model, String brand, Integer views ,Integer quantity, boolean available) {
         Productname = productName;
         Storename = storeName;
         Price = price;
         Model = model;
         Brand = brand;
         Views = views;
+        Quantity = quantity;
         Available = available;
     }
 
@@ -63,11 +66,11 @@ public class Product {
         Storename = storename;
     }
 
-    public double getPrice() {
+    public Integer getPrice() {
         return Price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Integer price) {
         Price = price;
     }
 
@@ -93,6 +96,14 @@ public class Product {
 
     public void setViews(Integer views) {
         Views = views;
+    }
+
+    public Integer getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        Quantity = quantity;
     }
 
     public boolean getAvailable() {

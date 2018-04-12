@@ -1,10 +1,14 @@
 package com.SWEProject.controllers;
 
 
+import com.SWEProject.Entities.History;
 import com.SWEProject.Entities.Product;
 import com.SWEProject.Entities.Store;
+import com.SWEProject.Entities.User;
+import com.SWEProject.repository.HistoryRepository;
 import com.SWEProject.service.ProductService;
 import com.SWEProject.service.storeService;
+import com.SWEProject.service.userService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +24,11 @@ public class StoreOwnerController {
     storeService storeServ;
     @Autowired
     ProductService productServ;
+    @Autowired
+    userService userServ;
+
+    @Autowired
+    private HistoryRepository historyRep;
 
     @PostMapping("/addStore")
     public boolean addStore(@RequestBody Store store)
@@ -27,11 +36,24 @@ public class StoreOwnerController {
         return  storeServ.addStore(store);
     }
 
+    @PostMapping("/addCollaborator")
+    public boolean addCollaborator(@RequestBody User collaborator)
+    {
+        return  userServ.addCollaborator(collaborator);
+    }
+
     @PostMapping("/addProduct")
     public boolean addProduct(@RequestBody Product product)
     {
-        return  productServ.addProduct(product);
+        return  productServ.addProduct(product );
     }
+
+    @PostMapping("/removeProduct")
+    public boolean removeProduct(@RequestBody Product product)
+    {
+        return  productServ.removeProduct(product);
+    }
+
 
     @PostMapping("/incrementView")
     public boolean incrementView(@RequestBody Product product)
@@ -40,10 +62,11 @@ public class StoreOwnerController {
           return true;
     }
 
-    @PostMapping("/buyProduct")
-    public boolean buyProduct(@RequestBody Product product)
+    @PostMapping("/buyProduct/{serialNumber}/{address}/{quantity}")
+    public boolean buyProduct(@PathVariable Integer serialNumber,@PathVariable String address,@PathVariable Integer quantity ,@RequestBody User user)
     {
-        return productServ.buyProduct(product.getSerialnumber());
+        System.out.println(serialNumber + "" + address + "" + quantity  + user.getUsername());
+        return productServ.buyProduct(serialNumber,address,quantity , user);
     }
 
     @GetMapping("/getProductList")
@@ -76,4 +99,24 @@ public class StoreOwnerController {
     {
         return storeServ.ShowStat(store ,Method);
     }
+
+    @PostMapping("/addToHistory/{username}/{type}/{storeName}")
+    public boolean addToHistory(@PathVariable String username ,@PathVariable String type,@PathVariable String storeName, @RequestBody Product product)
+    {
+        return storeServ.addToHistory(product, username,type ,storeName);
+    }
+
+    @PostMapping("/showHistory/{userName}/{storeName}")
+    public List<History> showHistory(@PathVariable String userName,@PathVariable String storeName)
+    {
+        return storeServ.showHistory(userName,storeName);
+    }
+
+    @PostMapping("/undo")
+    public boolean undo(@RequestBody History history)
+    {
+        return storeServ.undo(history);
+    }
+
+
 }
