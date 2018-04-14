@@ -38,7 +38,7 @@ public class ProductService {
 
             return true;
         }
-        System.out.println("allready exists" );
+        System.out.println("already exists" );
         return false;
     }
 
