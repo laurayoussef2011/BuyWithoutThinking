@@ -1,47 +1,37 @@
 package com.SWEProject.Entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class SystemProduct {
     @Id
-    private String ProductName;
+    private String Productname;
     private String Model;
     private String Brand;
     private double Price;
 
     public SystemProduct()
     {
-        ProductName = "";
+        Productname = "";
         Price = 0.0;
         Model = "";
         Brand = "";
     }
 
-    public SystemProduct(String productName, double price, String model, String brand) {
-        ProductName = productName;
-        Price = price;
+    public SystemProduct(String productname, String model, String brand, double price) {
+        Productname = productname;
         Model = model;
         Brand = brand;
-    }
-
-    public String getProductName() {
-        return ProductName;
-    }
-
-    public void setProductName(String productName) {
-        ProductName = productName;
-    }
-
-    public double getPrice() {
-        return Price;
-    }
-
-    public void setPrice(double price) {
         Price = price;
+    }
+
+    public String getProductname() {
+        return Productname;
+    }
+
+    public void setProductname(String productname) {
+        Productname = productname;
     }
 
     public String getModel() {
@@ -59,5 +49,12 @@ public class SystemProduct {
     public void setBrand(String brand) {
         Brand = brand;
     }
+
+    public double getPrice() {
+        return Price;
+    }
+
+    public void setPrice(double price) {
+        Price = price;
+    }
 }
-//

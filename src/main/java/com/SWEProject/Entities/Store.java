@@ -1,48 +1,45 @@
 package com.SWEProject.Entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 @Entity
 public class Store {
     @Id
-    private String StoreName;
-    private String StoreOwner;
+    private String Storename;
+    private String Storeowner;
     private String Type;
 
 
     public Store() {
-        StoreName = "";
-        StoreOwner= "";
+        Storename = "";
+        Storeowner = "";
         Type= "";
     }
 
-    public Store(String storeOwner, String storeName, String type) {
-        StoreOwner = storeOwner;
-        StoreName = storeName;
+    public Store(String storeowner, String storename, String type) {
+        Storeowner = storeowner;
+        Storename = storename;
         Type = type;
     }
 
-    public void setStoreOwner(String storeOwner) {
-        StoreOwner = storeOwner;
+    public void setStoreowner(String storeowner) {
+        Storeowner = storeowner;
     }
 
-    public void setStoreName(String storeName) {
-        StoreName = storeName;
+    public void setStorename(String storename) {
+        Storename = storename;
     }
 
     public void setType(String type) {
         Type = type;
     }
 
-    public String getStoreOwner() {
-        return StoreOwner;
+    public String getStoreowner() {
+        return Storeowner;
     }
 
-    public String getStoreName() {
-        return StoreName;
+    public String getStorename() {
+        return Storename;
     }
 
     public String getType() {

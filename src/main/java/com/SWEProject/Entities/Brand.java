@@ -8,32 +8,22 @@ import javax.persistence.Id;
 @Entity
 public class Brand {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer BrandID;
-    private String BrandName;
+    private String Brandname;
 
     public Brand()
     {
-        BrandName="";
+        Brandname ="";
     }
 
     public Brand(String name) {
-        BrandName = name;
+        Brandname = name;
     }
 
-    public Integer getBrandID() {
-        return BrandID;
+    public String getBrandname() {
+        return Brandname;
     }
 
-    public void setBrandID(Integer brandID) {
-        BrandID = brandID;
-    }
-
-    public String getBrandName() {
-        return BrandName;
-    }
-
-    public void setBrandName(String name) {
-        BrandName = name;
+    public void setBrandname(String name) {
+        Brandname = name;
     }
 }

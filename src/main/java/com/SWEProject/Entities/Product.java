@@ -1,7 +1,5 @@
 package com.SWEProject.Entities;
 
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,54 +9,68 @@ import javax.persistence.Id;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer SerialNumber;
-    private String ProductName;
-    private String StoreName;
-    private double Price;
+    private Integer Serialnumber;
+    private String Productname;
+    private String Storename;
+    private Integer Price;
     private String Model;
     private String Brand;
     private Integer Views;
+    private  Integer Quantity;
+    private boolean Available;
 
 
     public Product() {
-        ProductName = "";
-        Price = 0.0;
+        Productname = "";
+        Price = 0;
         Model = "";
         Brand = "";
-        StoreName = "";
+        Storename = "";
         Views = 0;
+        Quantity = 0;
+        Available = true;
     }
 
-    public Product(String productName, String storeName, double price, String model, String brand, Integer views) {
-        ProductName = productName;
-        StoreName = storeName;
+    public Product(String productName, String storeName, Integer price, String model, String brand, Integer views ,Integer quantity, boolean available) {
+        Productname = productName;
+        Storename = storeName;
         Price = price;
         Model = model;
         Brand = brand;
         Views = views;
+        Quantity = quantity;
+        Available = available;
     }
 
-    public Integer getSerialNumber() {
-        return SerialNumber;
+    public Integer getSerialnumber() {
+        return Serialnumber;
     }
 
-    public void setSerialNumber(Integer serialNumber) {
-        SerialNumber = serialNumber;
+    public void setSerialnumber(Integer serialnumber) {
+        Serialnumber = serialnumber;
     }
 
-    public String getProductName() {
-        return ProductName;
+    public String getProductname() {
+        return Productname;
     }
 
-    public void setProductName(String productName) {
-        ProductName = productName;
+    public void setProductname(String productname) {
+        Productname = productname;
     }
 
-    public double getPrice() {
+    public String getStorename() {
+        return Storename;
+    }
+
+    public void setStorename(String storename) {
+        Storename = storename;
+    }
+
+    public Integer getPrice() {
         return Price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Integer price) {
         Price = price;
     }
 
@@ -78,19 +90,27 @@ public class Product {
         Brand = brand;
     }
 
-    public String getStoreName() {
-        return StoreName;
-    }
-
-    public void setStoreName(String storeName) {
-        StoreName = storeName;
-    }
-
     public Integer getViews() {
         return Views;
     }
 
     public void setViews(Integer views) {
         Views = views;
+    }
+
+    public Integer getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        Quantity = quantity;
+    }
+
+    public boolean getAvailable() {
+        return Available;
+    }
+
+    public void setAvailable(boolean available) {
+        Available = available;
     }
 }
