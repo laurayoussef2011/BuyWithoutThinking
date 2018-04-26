@@ -1,0 +1,26 @@
+<html>
+  <body>
+<h2> Add Store Form </h2>
+    
+<div class = "container" >
+  <form  name="addStore" (ngSubmit)= "addStore()"   >
+ 
+      Store Name  <br/><input  type="text" placeholder="Enter Store Name" name="storename" [(ngModel)] = "store.storename" /> <br/><br/>
+      <!-- store Owner    <br/><input  type="text" placeholder="Enter Store Name" name="storeowner" [(ngModel)] = "store.storeowner" /> <br/><br/> -->
+     
+      Type     :<select  name="type" [(ngModel)] = "store.type">
+        <option  value="onsite"> onsite </option>
+        <option  value="online"> online </option>
+       </select>
+
+      <br/><br/>
+    <button type="submit" > Add </button>
+  </form>
+
+  <br><br>
+      <button type="submit" [routerLink] ='["/storeOwnerPage"]' > back </button>
+  <br><br>
+  
+</div>
+</body>
+</html>

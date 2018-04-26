@@ -1,0 +1,30 @@
+
+<div style=" border-width: medium; height: 50% ;background-color: lightgrey;  border-bottom: 6px solid blue ">
+        <a [routerLink] ='["/login"]' (ngSubmit)= "logout( )" > Logout </a>
+</div>
+  <br> <br>
+
+<html>
+  <body>
+        <div>
+            <table>
+                <thead>
+                  <th>Store Name </th>
+                  <th> Store Owner </th>
+                  <th> options </th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor = "let store of stores" >
+                      <td > {{store.storename}} </td>
+                      <td > {{store.storeowner}}  </td>
+  
+                      <td> <button (click)='storeProducts(store)' > View </button> 
+                      </tr>
+              
+                  </tbody>
+                </table>
+                <hr>
+          </div>
+    
+    </body>
+  </html>

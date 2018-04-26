@@ -1,0 +1,22 @@
+<h2> Add System Product </h2>
+<html>
+  <body>
+    
+    <div class = "container" >
+      <form  name="AddSystemProduct" (ngSubmit)= "addSystemProduct()"   >
+     
+          Product Name  <br/><input  type="text" placeholder="Enter Product Name" name="productName" [(ngModel)] = "systemProduct.productname" required/> <br/><br/>
+          Model Name    <br/><input  type="text" placeholder="Enter Model Name" name="model" [(ngModel)] = "systemProduct.model" required/> <br/><br/>
+          Brand Name    <br/><input  type="text" placeholder="Enter Brand Name" name="brand" [(ngModel)] = "systemProduct.brand" required/> <br/><br/>
+          Price         <br/><input  type="number" placeholder="Enter Price" name="price" [(ngModel)] = "systemProduct.price" required/> <br/><br/>
+  
+        <button type="submit">Add</button>
+      </form>
+
+    <br><br>
+      <button type="submit" [routerLink] ='["/adminPage"]' > back </button>
+    <br><br>
+      
+    </div>
+    </body>
+  </html>

@@ -1,0 +1,35 @@
+<div>
+
+    <table>
+        <thead>
+          <th> Serial Number </th>
+          <th> Product Name </th>
+          <th> Store Name </th>
+          <th> Price </th>
+          <th> Model </th>
+          <th> Brand </th>
+          <th> Quantity </th>
+          <th> Views </th>
+          <th> options </th>
+          </thead>
+          <tbody>
+            
+              <td > {{product.serialnumber}}     </td>
+              <td > {{product.productname}}  </td>
+              <td > {{product.storename}}    </td>
+              <td > {{product.price}}    </td>
+              <td > {{product.model}}    </td>
+              <td > {{product.brand}}    </td>
+              <td > {{product.quantity}}    </td>
+              <td > {{product.views}}    </td>
+
+              <td> <button (click) = 'buyProduct()'> Buy </button> 
+           
+      
+          </tbody>
+        </table>
+        <br/>  
+        <button [routerLink]='["/storeProducts"]'> Back </button>
+        <br/>    
+  </div>
+  

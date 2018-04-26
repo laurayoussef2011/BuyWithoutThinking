@@ -1,0 +1,29 @@
+
+<div>
+    <h2>
+        Show Stat
+    </h2>
+    <br/>
+    <table>
+        <thead>
+          <th>Product Name </th>
+          <th>Product Model </th>
+          <th> Number Of Views </th>
+          <th>  </th>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let product of products" >
+              <td > {{product.productname}} </td>
+              <td > {{product.model}} </td>
+              <td > {{product.views}}  </td>
+              <td> </td>
+
+              </tr>
+      
+          </tbody>
+   <br/>
+          <button [routerLink] = '["/storeOwnerPage"]'> Back </button>
+
+        </table>
+        <hr>
+  </div>

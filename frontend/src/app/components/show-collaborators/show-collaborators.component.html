@@ -1,0 +1,29 @@
+<html>
+  <body>
+<div>
+
+    <table>
+        <thead>
+          <th> Collaborator Name </th>
+          <th>  </th>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let collaborator of collaborators" >
+
+              <td > {{collaborator.username}}  </td>
+ 
+              <td> <button (click) = 'showHistory(collaborator)'> Show History </button> 
+              </tr>
+      
+          </tbody>
+        </table>
+        <br/>  
+        <button [routerLink]='["/storeOwnerPage"]'> Back </button>
+        <br/>    
+  </div>
+  
+  <hr>
+
+  </body>
+  </html>
+
