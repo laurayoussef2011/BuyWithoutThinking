@@ -1,0 +1,79 @@
+
+<html>
+  <body>
+
+    <div style=" border-width: medium; height: 50% ;background-color: lightgrey;  border-bottom: 6px solid blue ">
+            <a [routerLink] ='["/login"]' (ngSubmit)= "logout( )" > Logout </a>
+    </div>
+      <br> <br>
+    <h2> Store Owner Page   </h2>
+
+  <br>
+
+  <div>
+    <table>
+        <thead>
+          <th>Store Name </th>
+          <th> Store Owner </th>
+          <th> options </th>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let store of otherStores" >
+              <td > {{store.storename}} </td>
+              <td > {{store.storeowner}}  </td>
+
+              <td> <button (click)='storeProducts(store)' > View </button> 
+              </tr>
+      
+          </tbody>
+        </table>
+        <hr>
+  </div>
+
+  <br>
+  <div>
+
+    <br>
+    <button [routerLink] ='["/addStore"]' > addStore </button>
+    <!-- (click)="setShowAddStore($event)" -->
+
+
+    <br><br>
+
+    <hr>
+      <table>
+        <thead>
+          <th>Store Name </th>
+          <th> </th>
+          <th> </th>
+          <th> </th>
+          <th> </th>
+          <th> </th>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let store of stores" >
+              <td > {{store.storename}} </td>
+              <br/>
+              Type    <select  #type >
+                <option  value="Max"> Max </option>
+                <option  value="Min"> Min </option>
+                <option  value="Sort"> Sort </option>
+              </select>
+
+              <td> <button (click)='showStat(store , type.value)' > Show Stat </button> </td>
+
+              <td> <button (click)='addProduct(store)'> Add Product </button> </td>
+
+              <td> <button (click) ="addCollaborator(store)" > Add Collaborator </button> </td>
+
+              <td> <button (click) ="showCollaborators(store)" > Show Collaborators </button> </td>
+              </tr>  
+          </tbody>
+     </table>
+      
+     <!-- <add-store *ngIf="showAddStore"></add-store> -->
+
+  </div>
+  
+  </body>
+</html>

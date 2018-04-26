@@ -1,0 +1,33 @@
+<body>
+    <div style=" border-width: medium; height: 50% ;background-color: lightgrey;  border-bottom: 6px solid blue ">
+        <a [routerLink] ='["/"]' > Home </a>
+        <a [routerLink] ='["/login"]' > Login </a>
+        <a [routerLink] ='["/register"]' > Register </a>
+
+    </div>
+    <br> <br>
+    
+  <h2> Login Form </h2>
+  <br>
+  
+  <div class = "container" >
+    <form  name="Login" (ngSubmit)= "login()"   >
+        UserName <br/><input  type="text" placeholder="Enter Your Username" name="username" [(ngModel)] = "user.username" required/> <br/><br/>
+        Password <br/><input  type="password" placeholder="Enter Your Password" name="password" [(ngModel)] = "user.password" required/> <br/><br/>
+
+       
+        Type    <select  name="type" [(ngModel)] = "user.type">
+            <option  value="normalUser">Normal user</option>
+            <option  value="storeOwner">Store Owner</option>
+            <option  value="admin">Admin</option>
+            <option  value="collaborator">Collaborator</option>
+        </select>
+  
+      <br/><br/>
+      <button type="submit"> Login </button>
+    </form>
+    
+  </div>
+  
+  </body>
+  

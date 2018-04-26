@@ -1,0 +1,18 @@
+  
+  <body>
+    <br/>
+    <h2> Add Brand </h2>
+    <br/>
+    <div class = "container" >
+      <form  name="addBrand" (ngSubmit)= "addBrand()"   >
+          Brand Name    <br/><input  type="text" placeholder="Enter Brand Name" name="brand" [(ngModel)] = "brand.brandname" required/> <br/><br/>
+        <button type="submit">Add</button>
+      </form>
+      
+    <br><br>
+      <button type="submit" [routerLink] ='["/adminPage"]' > back </button>
+    <br><br>
+
+    </div>
+  </body>
+

@@ -1,0 +1,38 @@
+<html>
+  <body>
+<div>
+
+    <table>
+        <thead>
+          <th> Serial Number </th>
+          <th> Collaborator Name </th>
+          <th> Type </th>
+          <th> Date </th>
+          <th> Store Name </th>
+          <th> </th>
+          
+          </thead>
+          <tbody>
+            <tr *ngFor = "let h of history" >
+
+              <td > {{h.serial_number}}  </td>
+              <td > {{h.collaborator_name}}    </td>
+              <td > {{h.type}}  </td>
+              <td > {{h.date}}    </td>
+              <td > {{h.store_name}}  </td>
+               
+              <td> <button (click) = 'undo(h)'> Undo </button> 
+              
+              </tr>
+      
+          </tbody>
+        </table>
+        <br/>  
+        <button [routerLink]='["/storeOwnerPage"]'> Back </button>
+        <br/>    
+  </div>
+  
+  <hr>
+
+  </body>
+  </html>

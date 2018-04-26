@@ -1,0 +1,64 @@
+
+<html>
+  <body>
+
+    <div style=" border-width: medium; height: 50% ;background-color: lightgrey;  border-bottom: 6px solid blue ">
+            <a [routerLink] ='["/login"]' (ngSubmit)= "logout( )" > Logout </a>
+    </div>
+      <br> <br>
+    <h2> Collaborator Page  </h2>
+    <br>
+
+  <div>
+    <br>
+
+      Type    <select  #type >
+        <option  value="Max"> Max </option>
+        
+        <option  value="Min"> Min </option>
+        <option  value="Sort"> Sort </option>
+      </select>
+
+      <button (click)='showStat(type.value)' > showStat </button>
+</div>
+
+<br>
+<div>
+
+    <form  name="addProduct" (ngSubmit)= "addProduct()"   >
+     
+        Product Name  <br/><input  type="text" placeholder="Enter Product Name" name="productname" [(ngModel)] = "product.productname" /> <br/><br/>
+        price         <br/><input  type="text" placeholder="Enter Product Price " name="price" [(ngModel)] = "product.price" /> <br/><br/>
+        Model Name    <br/><input  type="text" placeholder="Enter Model Name " name="model" [(ngModel)] = "product.model" /> <br/><br/>
+        Brand Name    <br/><input  type="text" placeholder="Enter Brand Name " name="brand" [(ngModel)] = "product.brand" /> <br/><br/>
+
+        <br/><br/>
+        <button type="submit" >addProduct</button>
+     </form>
+
+  </div>
+
+<br>
+<div>
+      <table>
+        <thead>
+          <th> Product Name </th>
+          <th> Product Model </th>
+          <th>  </th>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let product of products" >
+
+              <td > {{product.productname}}  </td>
+              <td > {{product.model}}  </td>
+ 
+              <td> <button (click) = 'removeProduct(product)'> Remove </button> 
+              </tr>
+      
+          </tbody>
+        </table>
+
+  </div>
+  
+  </body>
+</html>
