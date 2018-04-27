@@ -26,6 +26,10 @@ public class userService {
         {
             return false;
         }
+        if(userRep.exists(user.getUsername()))
+        {
+            return false;
+        }
         userRep.save(user);
         return  true;
 
@@ -45,8 +49,8 @@ public class userService {
                     user.getType().equals(FoundUser.getType())) {
                 return FoundUser;
             }
-            else {
-                System.out.println("sorry !!");
+            else
+            {
                 return user;
             }
         }
