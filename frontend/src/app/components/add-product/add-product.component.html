@@ -1,0 +1,27 @@
+
+<body>
+    <h2> Add Product Form </h2>
+    
+    <div class = "container" >
+      <form  name="addProduct" (ngSubmit)= "addProduct( )"   >
+     
+          Product Name  <br/><input  type="text" placeholder="Enter Product Name" name="productname" [(ngModel)] = "product.productname" /> <br/><br/>
+          price         <br/><input  type="text" placeholder="Enter Product Price " name="price" [(ngModel)] = "product.price" /> <br/><br/>
+          Model Name    <br/><input  type="text" placeholder="Enter Model Name " name="model" [(ngModel)] = "product.model" /> <br/><br/>
+          Brand Name    <br/><input  type="text" placeholder="Enter Brand Name " name="brand" [(ngModel)] = "product.brand" /> <br/><br/>
+          Quntity       <br/><input  type="number" placeholder="Enter The Quantity  " name="quantity" [(ngModel)] = "product.quantity" /> <br/><br/>
+
+
+          <br/><br/>
+        <button type="submit"> Add </button>
+      </form>
+
+    <br><br>
+      <button type="submit" [routerLink] ='["/storeOwnerPage"]' > back </button>
+    <br><br>
+      
+    </div>
+
+    
+    </body>
+    

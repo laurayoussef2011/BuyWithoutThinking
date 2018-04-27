@@ -1,0 +1,33 @@
+<body>
+    <div style=" border-width: medium; height: 50% ;background-color: lightgrey;  border-bottom: 6px solid blue ">
+        <a [routerLink] ='["/"]'> Home </a>
+        <a [routerLink] ='["/login"]' > Login </a>
+        <a [routerLink] ='["/register"]' > Register </a>
+
+    </div>
+    <br> <br>
+<div>
+
+    <table>
+        <thead>
+          <th> Name </th>
+          <th> UserName </th>
+          <th> Email </th>
+          <th> Type </th>
+          <th> Operation </th>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let user of users" >
+              <td > {{user.name}}     </td>
+              <td > {{user.username}}  </td>
+              <td > {{user.email}}    </td>
+              <td > {{user.type}}    </td>
+              <td> <button (click)="deleteUser(user, user.username)"> Delete </button> 
+              </tr>
+      
+          </tbody>
+        </table>
+        <hr>
+
+  </div>
+  </body>

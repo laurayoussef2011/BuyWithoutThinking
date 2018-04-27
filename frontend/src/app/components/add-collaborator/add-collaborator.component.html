@@ -1,0 +1,25 @@
+<body>
+    <div style=" border-width: medium; height: 50% ;background-color: lightgrey;  border-bottom: 6px solid blue ">
+        <a [routerLink] ='["/login"]' (ngSubmit)= "logout( )" > Logout </a>
+</div>
+  <br> <br>
+<h2> Add Collaborator Form </h2>
+<br>
+<div class = "container" >
+<form  name="addCollaborator" (ngSubmit)= "addCollaborator()"   >
+
+    Name     <br/><input  type="text" placeholder="Enter collaborator Name" name="name" [(ngModel)] = "collaborator.name" required/> <br/><br/>
+    UserName <br/><input  type="text" placeholder="Enter collaborator Username" name="username" [(ngModel)] = "collaborator.username" required/> <br/><br/>
+    Email    <br/><input  type="text" placeholder="Enter collaborator Email" name="email" [(ngModel)] = "collaborator.email" required/> <br/><br/>
+    Password <br/><input  type="password" placeholder="Enter collaborator Password" name="password" [(ngModel)] = "collaborator.password" required/> <br/><br/>
+
+  <button type="submit">Add</button>
+  <br/> <br/>
+  <button type="submit" [routerLink] = '["/storeOwnerPage"]'>Back</button>
+  <br/>
+
+</form>
+
+</div>
+
+</body>
