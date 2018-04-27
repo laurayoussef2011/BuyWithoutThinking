@@ -26,6 +26,10 @@ public class userService {
         {
             return false;
         }
+        if(userRep.exists(user.getUsername()))
+        {
+            return false;
+        }
         userRep.save(user);
         return  true;
 
@@ -45,26 +49,13 @@ public class userService {
                     user.getType().equals(FoundUser.getType())) {
                 return FoundUser;
             }
-            else {
-                System.out.println("sorry !!");
+            else
+            {
                 return user;
             }
         }
         System.out.println("this user is not avail ");
         return user;
-    }
-
-    public boolean addCollaborator ( User collaborator)
-    {
-        if(userRep.exists(collaborator.getUsername()))
-        {
-            return false;
-        }
-        else
-        {
-            userRep.save(collaborator);
-            return true;
-        }
     }
 
     public List<User> showCollaborators(String storeName)
