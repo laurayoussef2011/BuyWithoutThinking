@@ -58,19 +58,6 @@ public class userService {
         return user;
     }
 
-    public boolean addCollaborator ( User collaborator)
-    {
-        if(userRep.exists(collaborator.getUsername()))
-        {
-            return false;
-        }
-        else
-        {
-            userRep.save(collaborator);
-            return true;
-        }
-    }
-
     public List<User> showCollaborators(String storeName)
     {
 
