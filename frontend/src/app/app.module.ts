@@ -36,8 +36,6 @@ import { BuyProductComponent } from './components/buy-product/buy-product.compon
 import { SystemProductService } from './service/system-product-service/system-product.service';
 
 
-
-
 const appRoutes: Routes = [
 { path: 'appTest', component: AppComponent },
   {path:'',component:HomePageComponent},
@@ -83,9 +81,8 @@ const appRoutes: Routes = [
     AddCollaboratorComponent,
     ShowCollaboratorsComponent,
     ShowHistoryComponent,
-    BuyProductComponent,
-    
-
+    BuyProductComponent
+  
     
   ],
   imports: [

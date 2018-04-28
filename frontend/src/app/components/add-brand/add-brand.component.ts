@@ -20,6 +20,14 @@ export class AddBrandComponent implements OnInit {
   addBrand(){
     this._brandService.createBrand(this.brand).subscribe((flag)=>{
       console.log(flag); 
+      if(flag == true)
+      {
+        window.alert("Brand has been added successfully !");
+      }
+      else
+      {
+        window.alert("Brand allready exists !");
+      }
     },(error)=>{
       console.log(error);
     })

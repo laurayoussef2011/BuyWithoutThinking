@@ -24,6 +24,14 @@ export class AddProductComponent implements OnInit {
     this.product.storename = this._storeService.getStore().storename;
     this._productService.addProduct(this.product).subscribe((flag)=>{
       console.log(flag); 
+      if(flag == true)
+      {
+        window.alert("Product has been added successfully !");
+      }
+      else
+      {
+        window.alert("Product allready exist !");
+      }
     
     },(error)=>{
       console.log(error);

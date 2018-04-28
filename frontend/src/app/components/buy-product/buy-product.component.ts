@@ -21,7 +21,14 @@ export class BuyProductComponent implements OnInit {
     this._productService.buyProduct(this._productService.productGetter().serialnumber
     , address , quantity , this._userService.getter()).subscribe((flag)=>{
       console.log(flag);
-      this._router.navigate(["/storeProducts"]);
+      if(flag == true)
+      {
+        window.alert("Transaction successful !");
+      }
+      else
+      {
+        window.alert("Transaction failed !");
+      }
     },(error)=>{
       console.log(error);
     }

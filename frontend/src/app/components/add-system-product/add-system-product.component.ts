@@ -22,6 +22,14 @@ export class AddSystemProductComponent implements OnInit {
   addSystemProduct(){
     this._systemProductService.createSystemProduct(this.systemProduct).subscribe((flag)=>{
       console.log(flag); 
+      if(flag == true)
+      {
+        window.alert("System product has been added successfully !");
+      }
+      else
+      {
+        window.alert("System product allready exist !");
+      }
     },(error)=>{
       console.log(error);
     })

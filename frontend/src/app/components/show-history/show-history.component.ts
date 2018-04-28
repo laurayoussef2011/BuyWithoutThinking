@@ -32,7 +32,15 @@ export class ShowHistoryComponent implements OnInit {
 
     this._storeService.undo(h).subscribe((flag)=>{
       console.log(flag);
-        },(error)=>{
+      if(flag == true)
+      {
+        window.alert("Undo successful !");
+      }
+      else
+      {
+        window.alert("Undo failed !");
+      }
+      },(error)=>{
       console.log(error);
     }
     ) 

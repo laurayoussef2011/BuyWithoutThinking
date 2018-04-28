@@ -28,9 +28,16 @@ export class AddCollaboratorComponent implements OnInit {
     this.collaborator.storename = this._storeService.getStore().storename;
 
 
-    this._userService.createUser(this.collaborator).subscribe((collaborator)=>{
-      console.log(collaborator); 
-      this._router.navigate(["/storeOwnerPage"]);
+    this._userService.createUser(this.collaborator).subscribe((flag)=>{
+      console.log(flag); 
+      if(flag == true)
+      {
+        window.alert("Add collaborator successfully !");
+      }
+      else
+      {
+        window.alert(" Collaborator userName allready exist OR There is missing information  !");
+      }
     },(error)=>{
       console.log(error);
     })

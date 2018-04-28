@@ -25,6 +25,14 @@ export class AddStoreComponent implements OnInit {
     this.store.storeowner = this._userService.getter().username;
     this._storeService.addStore(this.store).subscribe((flag)=>{
       console.log(flag); 
+      if(flag == true)
+      {
+        window.alert("Store has been added successfully !");
+      }
+      else
+      {
+        window.alert("Store allready exist !");
+      }
   
     },(error)=>{
       console.log(error);
