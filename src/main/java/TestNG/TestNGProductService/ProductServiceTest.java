@@ -1,10 +1,10 @@
-package com.SWEProject.service;
+package TestNG.TestNGProductService;
 
 import com.SWEProject.Entities.Product;
 import com.SWEProject.Entities.SystemProduct;
 import com.SWEProject.Entities.User;
 import com.SWEProject.repository.ProductRepository;
-import com.sun.org.apache.xpath.internal.operations.Mod;
+import com.SWEProject.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
