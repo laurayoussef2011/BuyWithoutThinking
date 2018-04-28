@@ -3,33 +3,53 @@ package TestNG.TestNGBrandService;
 import com.SWEProject.Entities.Brand;
 import com.SWEProject.repository.BrandRepository;
 import com.SWEProject.service.BrandService;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import static org.codehaus.groovy.runtime.DefaultGroovyMethods.any;
+import static org.mockito.Mockito.when;
 import static org.testng.Assert.*;
 
 public class BrandServiceTest {
 
-    BrandService brandService = new BrandService();
+    @Mock
+    BrandRepository brandRep;
 
-//    @Mock
-//    BrandRepository brandRepository;
-//
-//    @InjectMocks
-//    BrandServiceImp brandServiceImp;
-//
-//    @BeforeMethod
-//    public void setUp() throws Exception {
-//        MockitoAnnotations.initMocks(this);
-//    }
+    @InjectMocks
+    BrandService brandService;
+
+    @BeforeMethod
+    public void setUp() throws Exception {
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void brandCheckAvailableTrue() throws Exception {
+        String brandName = "OnePlus";
+        Brand brand = new Brand(brandName);
+
+        when(brandRep.save(brand)).thenReturn(brand);
+        assertEquals(true,brandService.brandCheckAvailable(brand));
+    }
+
+    @Test
+    public void brandCheckAvailableFalse() throws Exception {
+        String brandName = "OnePlus";
+        Brand brand = new Brand(brandName);
+
+        when(brandRep.save(brand)).thenReturn(null);
+        assertEquals(false,brandService.brandCheckAvailable(brand));
+    }
 
 
 
 
-
-    @DataProvider(name = "brandSuccess")
+    /*@DataProvider(name = "brandSuccess")
     public static Object[][] Test_AddBrand_Success()
     {
         return new Object[][]{
@@ -60,6 +80,6 @@ public class BrandServiceTest {
     {
         Brand tempBrand = new Brand(tempBrandName);
         Assert.assertEquals(false, brandService.brandCheckAvailable(tempBrand));
-    }
+    }*/
 
 }
