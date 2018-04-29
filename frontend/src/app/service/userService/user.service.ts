@@ -46,6 +46,10 @@ export class UserService {
     return this._http.post(this.baseUrl + '/showCollaborators/' + storeName,  this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
   }
 
+  addStat(method : string){
+    return this._http.post(this.baseUrl + '/addStat/' + method,  this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
+  }
+
   errorHandler(error:Response){
     return Observable.throw(error|| "SERVER ERROR");
   }

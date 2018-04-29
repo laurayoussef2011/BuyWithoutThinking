@@ -38,6 +38,12 @@ public class StoreController {
         return storeService.ShowStat(store ,Method);
     }
 
+    @PostMapping("/showMethods")
+    public List<String> showStat()
+    {
+        return storeService.showMethods();
+    }
+
     @PostMapping("/addToHistory/{username}/{type}/{storeName}")
     public boolean addToHistory(@PathVariable String username ,@PathVariable String type,@PathVariable String storeName, @RequestBody Product product)
     {

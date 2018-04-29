@@ -66,4 +66,11 @@ public class UserController {
         return userServ.showCollaborators(storeName);
     }
 
+    @PostMapping("/addStat/{method}")
+    public boolean addStat( @PathVariable String method)
+    {
+        return userServ.addStat(method);
+    }
+
+
 }

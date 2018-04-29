@@ -3,6 +3,7 @@ import { Product } from '../../entities/product';
 import { Router } from '@angular/router';
 import { StoreService } from '../../service/storeService/store.service';
 import { ProductService } from '../../service/productService/product.service';
+import { UserService } from '../../service/userService/user.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class AddProductComponent implements OnInit {
 
   private product :Product;
 
-  constructor(private _storeService:StoreService,private _productService:ProductService, private _router:Router) { }
+  constructor( private _storeService:StoreService,private _productService:ProductService, private _router:Router) { }
 
   ngOnInit() {
     this.product=new Product();
