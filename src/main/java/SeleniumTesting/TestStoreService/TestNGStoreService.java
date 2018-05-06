@@ -16,7 +16,7 @@ public class TestNGStoreService {
 
     @BeforeTest
     void setUp(){
-        System.setProperty("webdriver.chrome.driver","E:/3rd year/2nd term/Software-2/Assignment/Assignment#2/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:/Fadymbt/Documents/Software Engineering 2/chromedriver.exe");
         driver = new ChromeDriver();
     }
 

@@ -3,6 +3,7 @@ package com.SWEProject.service;
 import com.SWEProject.Entities.*;
 import com.SWEProject.repository.HistoryRepository;
 import com.SWEProject.repository.ProductRepository;
+import com.SWEProject.repository.StatRepository;
 import com.SWEProject.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,10 @@ public class storeService {
     @Autowired
     HistoryRepository historyRep;
     @Autowired
+    StatRepository statRep;
+    @Autowired
     ProductService productServ;
+
 
     public boolean addStore ( Store store){
 
@@ -45,7 +49,7 @@ public class storeService {
     }
 
     public List<Store> getOwnerStoreList(String storeOwnerName){
-        Iterable<Store> storeIterable= storeRep.findAll();
+        Iterable<Store> storeIterable = storeRep.findAll();
         List<Store> storeList =new ArrayList<>();
         for(Store store : storeIterable)
         {
@@ -63,17 +67,28 @@ public class storeService {
         List<Product> result = new ArrayList<>();
         List<Product> productList =productServ.getStoreProductList(store.getStorename()) ;
 
-        if(Method.equals("Max")){
+        Method = Method.toLowerCase();
+        if(Method.equals("max")){
             result.add(statistics.getMaxView(productList));
         }
-        else if (Method.equals("Min")){
+        else if (Method.equals("min")){
             result.add(statistics.getMinView(productList));
         }
-        else if(Method.equals("Sort")){
+        else if(Method.equals("sort")){
             result = statistics.getProductSorted(productList);
         }
         return result;
 
+    }
+
+    public List<String> showMethods() {
+        Iterable<Statistics> methods = statRep.findAll();
+        List<String>listOfMethods = new ArrayList<>();
+        for (Statistics s: methods)
+        {
+            listOfMethods.add(s.getMethod());
+        }
+        return listOfMethods;
     }
 
     public boolean addToHistory (Product product , String username , String type , String storeName){
