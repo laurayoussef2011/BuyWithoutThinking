@@ -11,7 +11,7 @@ public class TestProductService {
 
     public boolean addSystemProductTest(WebDriver _driver , String productName , String brand , String model , String price )
     {
-        System.setProperty("webdriver.chrome.driver","E:/3rd year/2nd term/Software-2/Assignment/Assignment#2/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:/Fadymbt/Documents/Software Engineering 2/chromedriver.exe");
         WebDriver driver =_driver;
 
         testUserService.loginTest(_driver , "fady" , "fady" ,"admin");
@@ -69,7 +69,7 @@ public class TestProductService {
 
     public boolean addProductTest(WebDriver _driver , String productName , String brand , String model , String price, String quantity )
     {
-        System.setProperty("webdriver.chrome.driver","E:/3rd year/2nd term/Software-2/Assignment/Assignment#2/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:/Fadymbt/Documents/Software Engineering 2/chromedriver.exe");
         WebDriver driver =_driver;
 
         testUserService.loginTest(_driver , "laura" , "laura" ,"storeOwner");

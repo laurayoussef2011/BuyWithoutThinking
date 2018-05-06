@@ -72,7 +72,7 @@ public class ProductService {
     public List<Product> getStoreProductList(String storeName){
 
         Iterable<Product> productIterable= productRep.findAll();
-        List<Product> productList =new ArrayList<>();
+        List<Product> productList = new ArrayList<>();
         for(Product product : productIterable)
         {
             if(product.getStorename().equals(storeName) && product.getAvailable())
@@ -89,7 +89,7 @@ public class ProductService {
 
     }
 
-    public boolean buyProduct(Integer serialNumber ,String address , Integer quantity, User user){
+    public boolean buyProduct(Integer serialNumber ,String address , Integer quantity, User user) {
         Product tempProduct = productRep.findOne(serialNumber);
 
         if(tempProduct.getAvailable())
@@ -99,6 +99,10 @@ public class ProductService {
                 if(user.getCredit() >= tempProduct.getPrice())
                 {
                     User tempUser = userRep.findOne(user.getUsername());
+                    if ( tempUser.getType().equals("storeOwner"))
+                    {
+                        System.out.println("you will get discount !!!");
+                    }
                     tempUser.setCredit(tempUser.getCredit() - tempProduct.getPrice());
                     userRep.save(tempUser);
                     tempProduct.setQuantity(tempProduct.getQuantity() - quantity);
@@ -116,7 +120,7 @@ public class ProductService {
 
     }
 
-    public boolean removeProduct(Product product){
+    public boolean removeProduct(Product product) {
 
         if(!productRep.exists(product.getSerialnumber())){
             System.out.println("this product is not available");
@@ -130,11 +134,5 @@ public class ProductService {
             return true;
         }
     }
-
-
-
-
-
-
 
 }

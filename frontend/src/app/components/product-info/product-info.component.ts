@@ -19,10 +19,4 @@ export class ProductInfoComponent implements OnInit {
       this.product = this._productService.productGetter();
   }
 
-  buyProduct(){
-    this._productService.productSetter(this.product);
-    this._router.navigate(["/buyProduct"]);
-  
-  }
-
 }

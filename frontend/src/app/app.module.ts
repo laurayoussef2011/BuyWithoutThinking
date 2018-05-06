@@ -34,6 +34,7 @@ import { ShowCollaboratorsComponent } from './components/show-collaborators/show
 import { ShowHistoryComponent } from './components/show-history/show-history.component';
 import { BuyProductComponent } from './components/buy-product/buy-product.component';
 import { SystemProductService } from './service/system-product-service/system-product.service';
+import { AddStatComponent } from './components/add-stat/add-stat.component';
 
 
 const appRoutes: Routes = [
@@ -55,7 +56,8 @@ const appRoutes: Routes = [
   {path:'showCollaborators', canActivate: [AutoguardGuard],component:ShowCollaboratorsComponent},
   {path:'addCollaborator', canActivate: [AutoguardGuard],component:AddCollaboratorComponent},
   {path:'showHistory', canActivate: [AutoguardGuard],component:ShowHistoryComponent},
-  {path:'buyProduct', canActivate: [AutoguardGuard],component:BuyProductComponent}
+  {path:'buyProduct', canActivate: [AutoguardGuard],component:BuyProductComponent},
+  {path:'addStat', canActivate: [AutoguardGuard],component:AddStatComponent}
   
 ];
 
@@ -81,7 +83,9 @@ const appRoutes: Routes = [
     AddCollaboratorComponent,
     ShowCollaboratorsComponent,
     ShowHistoryComponent,
-    BuyProductComponent
+    BuyProductComponent,
+    AddStatComponent,
+    
   
     
   ],

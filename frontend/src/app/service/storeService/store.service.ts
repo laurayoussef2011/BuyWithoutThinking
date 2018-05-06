@@ -41,6 +41,10 @@ export class StoreService {
     return this._http.post(this.baseUrl + '/showHistory/'+ username + '/'  + storeName ,  this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
   }
 
+  showMethods(){
+    return this._http.post(this.baseUrl + '/showMethods',  this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
+  }
+
   getOwnerStoreList(storeOwnerName : string){
     return this._http.post(this.baseUrl + '/getOwnerStoreList/' + storeOwnerName,  this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
   }

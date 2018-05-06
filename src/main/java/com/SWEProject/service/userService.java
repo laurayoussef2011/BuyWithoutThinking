@@ -1,7 +1,9 @@
 package com.SWEProject.service;
 
 import com.SWEProject.Entities.Product;
+import com.SWEProject.Entities.Statistics;
 import com.SWEProject.Entities.User;
+import com.SWEProject.repository.StatRepository;
 import com.SWEProject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class userService {
 
     @Autowired
     UserRepository userRep;
+    @Autowired
+    StatRepository statRepository;
 
     public boolean addUser(User user)
     {
@@ -73,5 +77,16 @@ public class userService {
 
         return userList;
 
+    }
+
+    public boolean addStat(String method)
+    {
+        Statistics statistic = new Statistics(method);
+        if(statRepository.exists(method))
+        {
+            return false;
+        }
+        statRepository.save(statistic);
+        return  true;
     }
 }

@@ -16,11 +16,20 @@ export class StoreOwnerPageComponent implements OnInit {
   private users : User[];
   private stores : Store[];
   private otherStores : Store[];
+  private methods : string[];
 
   constructor(private _userService:UserService ,private _storeService:StoreService , private _router:Router) { }
 
   ngOnInit() {
     this.user = this._userService.getter();
+
+    this._storeService.showMethods().subscribe((methods)=>{
+      console.log(methods);
+      this.methods = methods;
+    },(error)=>{
+      console.log(error);
+    }
+    )
 
     this._storeService.getStoreList().subscribe((stores)=>{
       console.log(stores);

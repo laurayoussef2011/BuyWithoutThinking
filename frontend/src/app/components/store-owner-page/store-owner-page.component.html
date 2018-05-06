@@ -35,9 +35,6 @@
 
     <br>
     <button [routerLink] ='["/addStore"]' > addStore </button>
-    <!-- (click)="setShowAddStore($event)" -->
-
-
     <br><br>
 
     <hr>
@@ -54,11 +51,15 @@
             <tr *ngFor = "let store of stores" >
               <td > {{store.storename}} </td>
               <br/>
-              Type    <select  #type >
-                <option  value="Max"> Max </option>
+              
+              <!-- Type    <select  #type > -->
+                  <select #type>
+                      <option value= {{m}}  *ngFor = "let m of methods" > {{m}} </option>
+                  </select>
+                <!-- <option  value="Max"> Max </option>
                 <option  value="Min"> Min </option>
-                <option  value="Sort"> Sort </option>
-              </select>
+                <option  value="Sort"> Sort </option> -->
+              <!-- </select> -->
 
               <td> <button (click)='showStat(store , type.value)' > Show Stat </button> </td>
 

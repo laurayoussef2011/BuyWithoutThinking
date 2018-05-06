@@ -24,6 +24,14 @@ export class BuyProductComponent implements OnInit {
       if(flag == true)
       {
         window.alert("Transaction successful !");
+        if(this._userService.getter().type == "storeOwner")
+        {
+          window.alert("transactions decreased 15% :D !");
+        }
+        else if (quantity >= 2 )
+        {
+          window.alert("transactions decreased 10% :D !");
+        }
       }
       else
       {

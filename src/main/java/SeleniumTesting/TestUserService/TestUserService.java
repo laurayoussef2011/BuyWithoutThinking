@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class TestUserService {
     public boolean loginTest(WebDriver _driver , String userName ,String password ,String type )
     {
-        System.setProperty("webdriver.chrome.driver","E:/3rd year/2nd term/Software-2/Assignment/Assignment#2/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:/Fadymbt/Documents/Software Engineering 2/chromedriver.exe");
         WebDriver driver = _driver;
 
         driver.get("http://localhost:4200/login");
@@ -39,7 +39,7 @@ public class TestUserService {
 
     public boolean registerTest(WebDriver _driver , String name, String userName , String email ,String password ,String type )
     {
-        System.setProperty("webdriver.chrome.driver","E:/3rd year/2nd term/Software-2/Assignment/Assignment#2/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:/Fadymbt/Documents/Software Engineering 2/chromedriver.exe");
         WebDriver driver = _driver;
 
         driver.get("http://localhost:4200/register");
@@ -81,7 +81,7 @@ public class TestUserService {
 
     public boolean addCollaboratorTest(WebDriver _driver , String name, String userName , String email ,String password,String type)
     {
-        System.setProperty("webdriver.chrome.driver", "E:/3rd year/2nd term/Software-2/Assignment/Assignment#2/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:/Fadymbt/Documents/Software Engineering 2/chromedriver.exe");
         WebDriver driver = _driver;
 
         loginTest(_driver, "laura", "laura" , "storeOwner");

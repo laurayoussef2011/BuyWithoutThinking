@@ -11,7 +11,7 @@ public class TestBrandService {
     TestUserService testUserService =new TestUserService();
     public boolean addBrandTest(WebDriver _driver , String brandName )
     {
-        System.setProperty("webdriver.chrome.driver","E:/3rd year/2nd term/Software-2/Assignment/Assignment#2/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:/Fadymbt/Documents/Software Engineering 2/chromedriver.exe");
         WebDriver driver =_driver;
 
         testUserService.loginTest(_driver , "fady" , "fady" ,"admin");

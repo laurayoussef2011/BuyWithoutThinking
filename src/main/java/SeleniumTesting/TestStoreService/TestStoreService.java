@@ -13,7 +13,7 @@ public class TestStoreService {
 
     public boolean addStoreTest(WebDriver _driver , String storeName ,String storeType)
     {
-        System.setProperty("webdriver.chrome.driver","E:/3rd year/2nd term/Software-2/Assignment/Assignment#2/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:/Fadymbt/Documents/Software Engineering 2/chromedriver.exe");
         WebDriver driver = _driver;
 
         testUserService.loginTest(_driver,"laura","laura","storeOwner");
@@ -66,7 +66,7 @@ public class TestStoreService {
 
     public boolean showCollaboratorTest(WebDriver _driver )
     {
-        System.setProperty("webdriver.chrome.driver","E:/3rd year/2nd term/Software-2/Assignment/Assignment#2/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","D:/Fadymbt/Documents/Software Engineering 2/chromedriver.exe");
         WebDriver driver = _driver;
 
         testUserService.loginTest(_driver,"laura","laura","storeOwner");

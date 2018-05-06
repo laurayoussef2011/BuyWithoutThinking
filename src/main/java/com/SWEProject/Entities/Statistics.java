@@ -1,11 +1,28 @@
 package com.SWEProject.Entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Statistics {
+    @Id
+    private String method;
 
     public Statistics() {
+    }
+
+    public Statistics(String method) {
+        this.method = method;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
     }
 
     public static List<Product> sort(List<Product> list) {

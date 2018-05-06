@@ -1,0 +1,18 @@
+  
+  <body>
+    <br/>
+    <h2> Add Statistics </h2>
+    <br/>
+    <div class = "container" >
+      <form  name="addStat" (ngSubmit)= "addStat()"   >
+          Statistics Method    <br/><input  type="text" placeholder="Enter Satat Method" name="stat" [(ngModel)] = "stat.method" required/> <br/><br/>
+        <button type="submit">Add</button>
+      </form>
+      
+    <br><br>
+      <button type="submit" [routerLink] ='["/adminPage"]' > back </button>
+    <br><br>
+
+    </div>
+  </body>
+
